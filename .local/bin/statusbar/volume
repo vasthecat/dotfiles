@@ -1,0 +1,90 @@
+#!/sbin/python3
+import subprocess
+import re
+import os
+
+
+block = os.getenv("BLOCK_BUTTON")
+if block is not None:
+    if block == '1':
+        subprocess.call(["pamixer", "-t", ";", "pkill", "-RTMIN+9", "dwmblocks"])
+    elif block == '3':
+        subprocess.Popen([os.getenv("TERMINAL"), "-e", "pulsemixer"])
+
+    quit(0)
+
+
+a = subprocess.check_output(["pactl", "list", "sinks"]).decode()
+
+SINK, PARAMS, PARAM = 0, 1, 2
+parsing = SINK
+
+re_param_str = re.compile("(.+?): (.*)")
+re_param_list = re.compile("(.+?):")
+
+current_sink = None
+current_param = None
+
+sinks = {}
+for line in a.split("\n"):
+    indent = line.count("\t")
+    line = line.strip()
+
+    if parsing == SINK:
+        if line.startswith("Sink"):
+            n = line.split()[1]
+            sinks[n] = {}
+            current_sink = sinks[n]
+
+            parsing = PARAMS
+
+    elif parsing == PARAMS:
+        if line == '':
+            parsing = SINK
+            continue
+        
+        match = re_param_str.match(line)
+        if indent == 1 and match is not None:
+            name, value = match.groups()
+            current_param = name
+            current_sink[name] = value
+            continue
+
+        match = re_param_list.match(line)
+        if indent == 1 and match is not None:
+            name = match.group(1)
+            current_param = name
+            current_sink[name] = []
+            continue
+
+        value = current_sink[name]
+        if isinstance(value, str):
+            current_sink[name] = [value]
+
+        current_sink[name].append(line)
+
+percent = re.compile("(\d+)%")
+vol = None
+mute = False
+for sink in sinks.values():
+    if 'JBL' in sink['Description']:
+        vol = int(percent.findall(sink['Volume'][0])[0])
+        mute = sink["Mute"] == "yes"
+        break
+    elif 'Built-in' in sink['Description'] and vol is None:
+        vol = int(percent.findall(sink['Volume'][0])[0])
+        mute = sink["Mute"] == "yes"
+
+
+
+if vol is None or mute:
+    print("🔇")
+
+if vol > 70:
+    icon = "🔊"
+elif vol < 30:
+    icon = "🔈"
+else:
+    icon = "🔉"
+
+print(f"{icon}{vol}%")
