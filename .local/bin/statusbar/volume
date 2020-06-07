@@ -67,11 +67,12 @@ percent = re.compile("(\d+)%")
 vol = None
 mute = False
 for sink in sinks.values():
-    if 'JBL' in sink['Description']:
+    if 'JBL' in sink['Description']: # Headphones
         vol = int(percent.findall(sink['Volume'][0])[0])
         mute = sink["Mute"] == "yes"
         break
-    elif 'Built-in' in sink['Description'] and vol is None:
+    # desktop and laptop sinks respectively
+    elif 'Built-in' in sink['Description'] or 'Family 17h' in sink['Description'] and vol is None:
         vol = int(percent.findall(sink['Volume'][0])[0])
         mute = sink["Mute"] == "yes"
 
@@ -79,6 +80,7 @@ for sink in sinks.values():
 
 if vol is None or mute:
     print("🔇")
+    quit(0)
 
 if vol > 70:
     icon = "🔊"

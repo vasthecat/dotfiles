@@ -8,4 +8,9 @@ case $BLOCK_BUTTON in
     1) setsid -f "$TERMINAL" -e ncdu '/home/andrew' ;;
 esac
 
-echo "💽$(getDiskSpace "/home")"
+host=$(hostname -s)
+if [ "$host" = "laptop1" ]; then
+    echo "💽$(getDiskSpace "/")"
+else
+    echo "💽$(getDiskSpace "/home")"
+fi
