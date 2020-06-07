@@ -1,7 +1,12 @@
+#!/bin/sh
+
 xcompmgr -c -o 0 &
 setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
 dunst &
 dwmblocks &
+if [ "$(hostname -s)" = "laptop1" ]; then
+    fusuma &
+fi
 
 # Setup wallpaper
 WP_DIR="$HOME/Pictures/Wallpapers/"

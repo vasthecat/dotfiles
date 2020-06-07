@@ -1,0 +1,6 @@
+swipe:
+  3:
+    left:
+      command: 'xdotool key Super+Right'
+    right:
+      command: 'xdotool key Super+Left'
