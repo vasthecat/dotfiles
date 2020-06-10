@@ -1,0 +1,9 @@
+#!/bin/sh
+dmenumon="0"
+dmenufont="monospace:size=15"
+col_gray1="#222222";
+col_gray2="#444444";
+col_gray3="#bbbbbb";
+col_gray4="#eeeeee";
+col_cyan="#005577";
+dmenu -l 10 -i -m $dmenumon -fn $dmenufont -nb $col_gray1 -nf $col_gray3 -sb $col_cyan -sf $col_gray4

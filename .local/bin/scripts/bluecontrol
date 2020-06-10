@@ -1,0 +1,61 @@
+#!/bin/sh
+
+fGetDevices() 
+{
+    bluetoothctl -- devices
+}
+
+fGetDevice()
+{
+    fGetDevices | dmenucmd
+}
+
+fPower()
+{
+    local state=$(bluetoothctl -- show | grep -i "powered" | awk '{ print $2 }')
+    case $state in
+        yes) bluetoothctl -- power off && notify-send "Power turned off" ;;
+        no)  bluetoothctl -- power on  && notify-send "Power turned on"  ;;
+    esac
+}
+
+fScan()
+{
+    local time=3
+    notify-send "Turning on scanning for $time seconds"
+    timeout $time bluetoothctl -- scan on
+    notify-send "Scanning turned off"
+} 
+
+fConnect() 
+{
+    local device=$(fGetDevices | dmenucmd | awk '{ print $2 }')
+    local output=$(bluetoothctl -- connect "$device")
+    (echo "$output" | grep -i "successful") && notify-send "Connection successful" && return
+    (echo "$output" | grep -i "failed") && notify-send "Failed to connect" && return
+}
+
+fRemove()
+{
+    local device=$(fGetDevices | dmenucmd | awk '{ print $2 }')
+    bluetoothctl -- remove "$devices"
+    notify-send "Removed device"
+}
+
+fDisconnect()
+{
+    bluetoothctl -- disconnect
+    notify-send "Disconnected"
+}
+
+command=$(echo -e "connect\nremove\ndisconnect\nscan\npower" | dmenucmd)
+case $command in
+    connect) fConnect ;;
+    remove) fRemove ;;
+    disconnect) fDisconnect ;;
+    scan) fScan ;;
+    power) fPower ;;
+esac
+
+# Update dwmblocks status if connected
+pkill -RTMIN+9 dwmblocks
