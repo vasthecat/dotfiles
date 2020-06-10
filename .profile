@@ -29,7 +29,7 @@ fi
 export SHELL="/bin/zsh"
 export TERMINAL="st"
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 export VIMINIT="source $MYVIMRC"
 
 # XDG Paths config
