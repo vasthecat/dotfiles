@@ -21,7 +21,7 @@ fPower()
 
 fScan()
 {
-    local time=3
+    local time=5
     notify-send "Turning on scanning for $time seconds"
     timeout $time bluetoothctl -- scan on
     notify-send "Scanning turned off"
@@ -38,7 +38,7 @@ fConnect()
 fRemove()
 {
     local device=$(fGetDevices | dmenucmd | awk '{ print $2 }')
-    bluetoothctl -- remove "$devices"
+    bluetoothctl -- remove "$device"
     notify-send "Removed device"
 }
 
