@@ -32,6 +32,9 @@ export EDITOR="nvim"
 export BROWSER="qutebrowser"
 export VIMINIT="source $MYVIMRC"
 
+# For Jetbrains products
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # XDG Paths config
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -57,3 +60,7 @@ export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export LESSHISTFILE=-
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+
+# Passwords
+export CALCURSE_CALDAV_PASSWORD=$(pass show caldav/radicale)
