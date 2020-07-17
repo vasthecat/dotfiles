@@ -7,3 +7,4 @@
 killall -q polybar
 
 polybar example &
+XDG_SESSION_TYPE=x11 plank &

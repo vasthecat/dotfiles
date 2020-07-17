@@ -171,6 +171,7 @@
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
+
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="W-Return">
@@ -183,6 +184,41 @@
         <command>x-terminal-emulator -e htop</command>
       </action>
     </keybind>
+
+    <!-- Keybindings for screenshots -->
+    <keybind key="Print">
+      <action name="Execute">
+        <command>screenshot area to clip</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>screenshot area to file</command>
+      </action>
+    </keybind>
+
+    <keybind key="C-Print">
+      <action name="Execute">
+        <command>screenshot window to clip</command>
+      </action>
+    </keybind>
+    <keybind key="C-S-Print">
+      <action name="Execute">
+        <command>screenshot window to file</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-Print">
+      <action name="Execute">
+        <command>screenshot screen to clip</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>screenshot screen to file</command>
+      </action>
+    </keybind>
+
     <!-- Keybindings for desktop switching -->
     <keybind key="W-Left">
       <action name="GoToDesktop">
@@ -208,6 +244,7 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+
     <!-- Tiling-like keybindings for sending windows to dekstops -->
     <keybind key="W-S-1">
       <action name="SendToDesktop">
@@ -263,6 +300,7 @@
         <follow>no</follow>
       </action>
     </keybind>
+
     <!-- Tiling-like keybindings for changing desktop -->
     <keybind key="W-1">
       <action name="GoToDesktop">
@@ -312,6 +350,7 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
@@ -326,12 +365,7 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <!-- Take a screenshot of the current window with scrot when Alt+Print are pressed -->
-    <keybind key="A-Print">
-      <action name="Execute">
-        <command>scrot -s</command>
-      </action>
-    </keybind>
+
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
@@ -362,23 +396,8 @@
         </finalactions>
       </action>
     </keybind>
-    <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
-    </keybind>
-    <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot</command>
-      </action>
-    </keybind>
   </keyboard>
+
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
