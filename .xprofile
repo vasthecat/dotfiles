@@ -1,9 +1,15 @@
 #!/bin/sh
 
-xcompmgr -c -o 0 &
-setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
+setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp:caps_toggle"
 dunst &
-dwmblocks &
+
+# Window manager specific config
+if [ "$DISPLAY_SESSION" = "dwm" ]; then
+    compositor_args="-o 0"
+    dwmblocks &
+fi
+
+# Host specific config
 if [ "$(hostname -s)" = "laptop1" ]; then
     fusuma &
 fi
@@ -14,3 +20,10 @@ if [ -d "$WP_DIR" ]; then
     WP=$( ls -l "$WP_DIR" | tail -n +2 | awk '{ print $9 }' | shuf | tail -n -1 )
     xwallpaper --zoom "$WP_DIR/$WP"
 fi
+
+# On archlinux there is only picom fork
+if ! [ $(command -v compton) ]; then
+    alias compton="picom"
+fi
+
+compton -c --config $XDG_CONFIG_HOME/compton/compton.conf $compositor_args &

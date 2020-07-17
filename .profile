@@ -26,6 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 fi
 
+# 
+export DISPLAY_SESSION="dwm"
+
 export SHELL="/bin/zsh"
 export TERMINAL="st"
 export EDITOR="nvim"
@@ -62,5 +65,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
-# Passwords
-export CALCURSE_CALDAV_PASSWORD=$(pass show caldav/radicale)
+# Autostarting window manager
+if [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
+    [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
+fi

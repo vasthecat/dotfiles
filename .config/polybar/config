@@ -19,12 +19,12 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 ;background = #222
-background = #32302f
+background = #2e3440
 background-alt = #444
 
 ;foreground = ${xrdb:color7:#222}
 ;foreground = #dfdfdf
-foreground = #ebdbb2
+foreground = #eceff4
 foreground-alt = #555
 
 primary = #ffb52a
@@ -59,9 +59,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
+modules-left = bspwm i3 workspaces
 modules-center = date
-modules-right = xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature
+modules-right = xbacklight alsa xkeyboard memory cpu wlan eth battery temperature
 
 tray-position = right
 tray-padding = 2
@@ -170,6 +170,34 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/workspaces]
+type = internal/xworkspaces
+format = <label-state>
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
+
+label-active = %index%
+label-active-foreground = #ffffff
+label-active-background = #000000
+label-active-underline = #00ff00
+label-active-padding = 2
+
+label-empty = %index%
+label-empty-padding = 2
+
+icon-0 = 1;1
+icon-1 = 2;1
+icon-2 = 3;1
+icon-3 = 4;1
+icon-4 = 5;1
+icon-5 = 6;1
+icon-6 = 7;1
+icon-7 = 8;1
+icon-8 = 9;1
+icon-9 = 10;1
+icon-default = 
 
 [module/mpd]
 type = internal/mpd
@@ -246,7 +274,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp5s0
+interface = eth0
 interval = 3.0
 
 format-connected-underline = #55aa55

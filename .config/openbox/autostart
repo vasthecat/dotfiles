@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Polybar is starting when .xprofile is sourced,
+# but in that case workspaces module won't start
+# for openbox. This is dirty hack, but I don't 
+# need to change .xprofile
+killall -q polybar
+
+polybar example &
