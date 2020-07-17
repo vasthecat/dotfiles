@@ -1,0 +1,32 @@
+#!/sbin/python3
+import sys
+def nempty(l):
+    return [i for i in l if i]
+
+
+if len(sys.argv) > 2:
+    s = sys.argv[2]
+else:
+    s = input()
+
+l = nempty(s.strip().split())
+r = sys.argv[1].split(":")
+
+if len(r) == 3:
+    start, end, step = map(int, r)
+elif len(r) == 2:
+    if r[0] == '':
+        start = 0
+        end = int(r[1])
+        step = 1
+    elif r[1] == '':
+        start = int(r[0])
+        end = len(l)
+        step = 1
+    else:
+        start, end = r
+        step = 1
+
+print(' '.join(l[start:end:step]))
+
+
