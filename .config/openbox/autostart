@@ -6,5 +6,5 @@
 # need to change .xprofile
 killall -q polybar
 
-polybar example &
+polybar main &
 XDG_SESSION_TYPE=x11 plank &

@@ -171,20 +171,18 @@
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
-
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>x-terminal-emulator</command>
+        <command>sh -c "setsid -f $TERMINAL"</command>
       </action>
     </keybind>
     <keybind key="W-Tab">
       <action name="Execute">
-        <command>x-terminal-emulator -e htop</command>
+        <command>sh -c "setsid -f $TERMINAL -e htop"</command>
       </action>
     </keybind>
-
     <!-- Keybindings for screenshots -->
     <keybind key="Print">
       <action name="Execute">
@@ -196,7 +194,6 @@
         <command>screenshot area to file</command>
       </action>
     </keybind>
-
     <keybind key="C-Print">
       <action name="Execute">
         <command>screenshot window to clip</command>
@@ -207,7 +204,6 @@
         <command>screenshot window to file</command>
       </action>
     </keybind>
-
     <keybind key="W-Print">
       <action name="Execute">
         <command>screenshot screen to clip</command>
@@ -218,7 +214,18 @@
         <command>screenshot screen to file</command>
       </action>
     </keybind>
-
+    <!-- App launcher -->
+    <keybind key="W-p">
+      <action name="Execute">
+        <command>rofi -show drun -theme nord</command>
+      </action>
+    </keybind>
+    <!-- Browser -->
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>sh -c "setsid -f $BROWSER"</command>
+      </action>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-Left">
       <action name="GoToDesktop">
@@ -244,7 +251,6 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-
     <!-- Tiling-like keybindings for sending windows to dekstops -->
     <keybind key="W-S-1">
       <action name="SendToDesktop">
@@ -300,7 +306,6 @@
         <follow>no</follow>
       </action>
     </keybind>
-
     <!-- Tiling-like keybindings for changing desktop -->
     <keybind key="W-1">
       <action name="GoToDesktop">
@@ -350,7 +355,6 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
@@ -365,7 +369,6 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
@@ -397,7 +400,6 @@
       </action>
     </keybind>
   </keyboard>
-
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
