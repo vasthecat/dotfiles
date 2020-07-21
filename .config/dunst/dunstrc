@@ -1,5 +1,5 @@
 [global]
-    font = Monospace 13
+    font = Monospace 11
 
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -59,7 +59,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x5-30+20"
+    geometry = "300x20-30+50"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
@@ -115,7 +115,7 @@
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = true
+    startup_notification = false
 
     # dmenu path
     dmenu = /usr/bin/dmenu -p dunst:
@@ -149,17 +149,17 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#222222"
-    foreground = "#888888"
+    foreground = "#eceff4"
     timeout = 10
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#2e3440"
+    foreground = "#eceff4"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    background = "#bf616a"
+    foreground = "#eceff4"
     timeout = 0
 
 
