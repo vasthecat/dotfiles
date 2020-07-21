@@ -32,7 +32,7 @@ export DISPLAY_SESSION="dwm"
 export SHELL="/bin/zsh"
 export TERMINAL="st"
 export EDITOR="nvim"
-export BROWSER="qutebrowser"
+export BROWSER="firefox"
 export VIMINIT="source $MYVIMRC"
 
 # For Jetbrains products
