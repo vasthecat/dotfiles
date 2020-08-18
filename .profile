@@ -26,8 +26,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 fi
 
-# 
+# Set this variable to allow autostart
+export AUTOSTART=1
+# Set supported WM to autostart
 export DISPLAY_SESSION="dwm"
+
 
 export SHELL="/bin/zsh"
 export TERMINAL="st"
@@ -66,6 +69,6 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # Autostarting window manager
-if [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
+if [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
     [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
 fi

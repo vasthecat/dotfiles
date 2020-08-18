@@ -1,6 +1,11 @@
 #!/bin/sh
 
-setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp:caps_toggle"
+if [ "$DISPLAY_SESSION" != "openbox" ] && \
+   [ "$DISPLAY_SESSION" != "dwm" ]; then
+    exit 0
+fi
+
+setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
 dunst &
 
 # Window manager specific config

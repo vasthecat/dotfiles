@@ -54,7 +54,7 @@ font-1 = ProFontIIx Nerd Font:pixelsize=15;3
 
 modules-left = menu bspwm i3 workspaces
 modules-center = xwindow
-modules-right = alsa xkeyboard xbacklight memory cpu wlan eth battery date
+modules-right = pulseaudio xkeyboard xbacklight memory cpu wlan eth battery date
 
 tray-position = right
 tray-padding = 2
