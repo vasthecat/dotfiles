@@ -1,3 +1,4 @@
 #!/bin/sh
 
-date "+%d %b (%a) %k:%M"
+d=$(date "+%d %b (%a) %k:%M")
+printf "  ${d}"

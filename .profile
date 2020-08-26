@@ -69,6 +69,8 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # Autostarting window manager
-if [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
-    [ "$(tty)" = "/dev/tty1" ] && ! pidof Xorg >/dev/null 2>&1  && exec startx
+if [ "$(tty)" = "/dev/tty1" ] && [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
+     ! pidof Xorg >/dev/null 2>&1  && exec startx
+elif [ -z "$TMUX" ]; then
+    exec tmux
 fi

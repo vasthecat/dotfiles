@@ -1,4 +1,4 @@
-#!/sbin/python3
+#!/usr/bin/python3
 import subprocess
 import re
 import os
@@ -79,14 +79,15 @@ for sink in sinks.values():
 
 
 if vol is None or mute:
-    print("🔇")
+    print("婢 [   Mute   ]   0%")
     quit(0)
 
 if vol > 70:
-    icon = "🔊"
-elif vol < 30:
-    icon = "🔈"
+    icon = "墳 "
+elif vol > 30:
+    icon = "奔 "
 else:
-    icon = "🔉"
+    icon = "奄 "
 
-print(f"{icon}{vol}%")
+v = vol // 10
+print(f"{icon}[{'*' * v}{' ' * (10 - v)}] {str(vol).rjust(3, ' ')}%")
