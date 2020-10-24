@@ -27,7 +27,7 @@ export DISPLAY_SESSION="dwm"
 export SHELL="/bin/zsh"
 export TERMINAL="st"
 export EDITOR="nvim"
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 export VIMINIT="source $MYVIMRC"
 
 # For Jetbrains products
@@ -61,8 +61,10 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # Autostarting window manager
-if [ "$(tty)" = "/dev/tty1" ] && [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
-     ! pidof Xorg >/dev/null 2>&1  && exec startx
+if [ "$(tty)" = "/dev/tty1" ]; then 
+    if [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
+        ! pidof Xorg >/dev/null 2>&1 && exec startx
+    fi
 elif [ -z "$TMUX" ]; then
     exec tmux
 fi

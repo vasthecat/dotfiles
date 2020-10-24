@@ -4,6 +4,8 @@ if [ "$DISPLAY_SESSION" = "dwm" ]; then
     session_line=dwm
 elif [ "$DISPLAY_SESSION" = "openbox" ]; then
     session_line=openbox-session
+elif [ "$DISPLAY_SESSION" = "xmonad" ]; then
+    session_line=xmonad
 else
     echo "DISPLAY_SESSION not specified. Exiting..."
     exit 1
