@@ -7,8 +7,9 @@ elif [ "$DISPLAY_SESSION" = "openbox" ]; then
 elif [ "$DISPLAY_SESSION" = "xmonad" ]; then
     session_line=xmonad
 else
-    echo "DISPLAY_SESSION not specified. Exiting..."
-    exit 1
+    session_line="$DISPLAY_SESSION"
+    # echo "DISPLAY_SESSION not specified. Exiting..."
+    # exit 1
 fi
 
 [ -f /etc/xprofile ] && . /etc/xprofile
