@@ -1,33 +1,9 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 fi
 
-# Set this variable to allow autostart
-export AUTOSTART=1
-# Set supported WM to autostart
-export DISPLAY_SESSION="dwm"
-
-
 export SHELL="/bin/zsh"
-export TERMINAL="st"
-export EDITOR="nvim"
-export BROWSER="qutebrowser"
 export VIMINIT="source $MYVIMRC"
 
 # For Jetbrains products
@@ -59,12 +35,8 @@ export LESSHISTFILE=-
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+export STACK_ROOT="$XDG_DATA_HOME/stack"
 
-# Autostarting window manager
-if [ "$(tty)" = "/dev/tty1" ]; then 
-    if [ "$AUTOSTART" = "1" ] && [ -z "$DISPLAY" ] && [ ! -z "$DISPLAY_SESSION" ]; then
-        ! pidof Xorg >/dev/null 2>&1 && exec startx
-    fi
-elif [ -z "$TMUX" ]; then
-    exec tmux
-fi
+export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
+export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
+export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
