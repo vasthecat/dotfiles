@@ -11,7 +11,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader% }{ %battery% | %kbd% | %memory% | %dynnetwork% | %date% "
+   , template = " %StdinReader% }{ %packages% | %alsa:default:Master% | %battery% | %dynnetwork% | %kbd% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,6 +39,10 @@ Config {
 
         -- Stdin Reader from xmonad
         [ Run StdinReader
+        
+        , Run CommandReader "pacpackages" "packages"
+
+        , Run Alsa "default" "Master" []
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<fc=#02d310><dev></fc>"
@@ -57,16 +61,7 @@ Config {
                              , "--normal"   , "#ed8b02" -- orange
                              , "--high"     , "#ed2902" -- green
                              ] 10
-                          
-        -- memory usage monitor
-        , Run Memory         [ "--template" ,"Mem: <usedratio>%"
-                             , "--Low"      , "20"        -- units: %
-                             , "--High"     , "90"        -- units: %
-                             , "--low"      , "#02d310" -- red
-                             , "--normal"   , "#ed8b02" -- orange
-                             , "--high"     , "#ed2902" -- green
-                             ] 10
-
+        
         -- battery monitor
         , Run Battery        [ "--template" , "Battery: <acstatus>"
                              , "--Low"      , "10"        -- units: %

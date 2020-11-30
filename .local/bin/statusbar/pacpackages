@@ -6,5 +6,5 @@ esac
 
 pacmancnt=$(pacman -Qu | grep -Fcv "[ignored]")
 aurcnt=$(yay -Qau | grep -Fcv "[ignored]")
-echo "$pacmancnt+$aurcnt" | sed "s/^/  /g"
+echo "$pacmancnt+$aurcnt" | sed "s/^/Packages: /"
 
