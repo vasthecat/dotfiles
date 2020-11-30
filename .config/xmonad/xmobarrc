@@ -11,7 +11,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader% }{ %packages% | %alsa:default:Master% | %battery% | %dynnetwork% | %kbd% | %date% "
+   , template = " %StdinReader% }{ %packages% | %volume% | %battery% | %dynnetwork% | %kbd% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -40,7 +40,10 @@ Config {
         -- Stdin Reader from xmonad
         [ Run StdinReader
         
-        , Run CommandReader "pacpackages" "packages"
+        -- Check for package updates every ~16 minutes
+        , Run Com "pacpackages" [] "packages" 10000
+
+        , Run Com "volume" [] "" 5
 
         , Run Alsa "default" "Master" []
 
