@@ -10,8 +10,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'arcticicestudio/nord-vim'
-
-
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end()
 filetype plugin indent on

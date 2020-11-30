@@ -2,9 +2,15 @@
 import sys
 import re
 import subprocess
+from subprocess import check_output as cout
 
 def shoot(arg, dst):
     print(f"{tool_name} {arg} | {dst}")
+
+#  def get_path():
+    #  with open("~/.cache/")
+    #  p = cout(["dmenu"], input="".encode()).decode().strip()
+
 
 
 tool_name = "maim"
