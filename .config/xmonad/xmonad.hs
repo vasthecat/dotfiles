@@ -152,6 +152,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_Tab), spawn "$TERMINAL -e htop")
     , ((modm .|. shiftMask, xK_b), spawn "bluecontrol")
     , ((modm .|. shiftMask, xK_t), spawn "$TERMINAL -e tremc")
+    , ((modm, xK_x), spawn "xkill")
     ]
     ++
 
