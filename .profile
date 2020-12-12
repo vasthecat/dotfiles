@@ -3,7 +3,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 fi
 
-export SHELL="/bin/zsh"
+export SHELL="/bin/bash"
 export VIMINIT="source $MYVIMRC"
 
 # For Jetbrains products
@@ -36,6 +36,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
+export R_ENVIRON="$XDG_CONFIG_HOME/r/.Renviron"
 
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
 export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
