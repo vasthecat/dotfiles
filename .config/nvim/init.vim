@@ -74,4 +74,8 @@ vmap <C-\> <leader>c<space>
 " Open ruby REPL on F5 if current file is .rb
 au BufReadPost,BufNewFile *.rb map <F5> :!setsid st -e irb -r "%:p"<CR><CR>
 
-nmap <C-p> :Files<CR>
+" Only search for files in directory in which vim was opened. 
+autocmd VimEnter * let g:basedir=expand("%:p:h")
+nmap <C-p> :execute "Files" g:basedir<CR>
+
+nmap ; :Buffers<CR>
