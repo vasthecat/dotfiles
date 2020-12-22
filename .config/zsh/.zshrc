@@ -17,7 +17,7 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 # Turn on clint prompt
 autoload -Uz promptinit
 promptinit
-prompt clint
+prompt suse
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -41,4 +41,3 @@ alias  dotdiff="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' dif
 alias   dotadd="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' add -f"
 alias vim="nvim"
 
-# [[ -z "$TMUX" ]] && exec tmux

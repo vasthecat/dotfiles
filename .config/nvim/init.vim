@@ -9,8 +9,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-Plugin 'arcticicestudio/nord-vim'
+" Plugin 'arcticicestudio/nord-vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -36,15 +39,16 @@ set relativenumber number
 au InsertEnter * set number norelativenumber
 au InsertLeave * set relativenumber
 
-colorscheme nord
+colorscheme gruvbox
+set background=dark
 
 autocmd StdinReadPre * let s:std_in=1
 
 " Open NERDTree if no file specified
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Open NERDTree if openning directory
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " Close vim if only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -67,3 +71,7 @@ let g:NERDTreeChDirMode=2
 nmap <C-\> <leader>c<space>
 vmap <C-\> <leader>c<space>
 
+" Open ruby REPL on F5 if current file is .rb
+au BufReadPost,BufNewFile *.rb map <F5> :!setsid st -e irb -r "%:p"<CR><CR>
+
+nmap <C-p> :Files<CR>
