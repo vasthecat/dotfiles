@@ -43,7 +43,7 @@ Config {
         -- Check for package updates every ~16 minutes
         , Run Com "pacpackages" [] "packages" 10000
 
-        , Run Com "volume" [] "" 5
+        , Run Com "volume" ["Volume: <fc=#02d310>%s</fc>"] "" 5
 
         , Run Alsa "default" "Master" []
 

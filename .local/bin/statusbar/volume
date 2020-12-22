@@ -2,6 +2,7 @@
 import subprocess
 import re
 import os
+import sys
 
 
 block = os.getenv("BLOCK_BUTTON")
@@ -77,17 +78,14 @@ for sink in sinks.values():
         mute = sink["Mute"] == "yes"
 
 
+format_string = "%i"
+if len(sys.argv) > 1:
+    format_string = sys.argv[1]
 
 if vol is None or mute:
-    print("婢 [   Mute   ]   0%")
-    quit(0)
-
-if vol > 70:
-    icon = "墳 "
-elif vol > 30:
-    icon = "奔 "
+    vol = "Muted"
 else:
-    icon = "奄 "
+    v = vol // 10
 
-v = vol // 10
-print(f"{icon}[{'*' * v}{' ' * (10 - v)}] {str(vol).rjust(3, ' ')}%")
+print(format_string % vol)
+
