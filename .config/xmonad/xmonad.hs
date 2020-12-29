@@ -29,6 +29,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Util.Run -- (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Actions.CycleWS
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -143,7 +144,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    ++
+
+    [ ((modm .|. shiftMask, xK_Right), shiftNextScreen)
+    , ((modm .|. shiftMask, xK_Left),  shiftPrevScreen)
+    , ((modm, xK_Right),  nextScreen)
+    , ((modm, xK_Left),   prevScreen)
+    ]
     ++
     
     -- Custom applications bindings
