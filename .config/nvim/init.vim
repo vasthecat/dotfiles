@@ -9,9 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
-" Plugin 'arcticicestudio/nord-vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 
@@ -71,11 +69,9 @@ let g:NERDTreeChDirMode=2
 nmap <C-\> <leader>c<space>
 vmap <C-\> <leader>c<space>
 
-" Open ruby REPL on F5 if current file is .rb
-au BufReadPost,BufNewFile *.rb map <F5> :!setsid st -e irb -r "%:p"<CR><CR>
-
 " Only search for files in directory in which vim was opened. 
 autocmd VimEnter * let g:basedir=expand("%:p:h")
 nmap <C-p> :execute "Files" g:basedir<CR>
 
 nmap ; :Buffers<CR>
+nmap <C-w> :bd!<CR>
