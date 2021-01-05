@@ -28,3 +28,4 @@ fzf_cd() {
 bind '"\C-f":"fzf_cd\n"'
 
 export PS1="\A \u@\h:\w >\[$(tput sgr0)\] "
+export TERM="xterm-256color"
