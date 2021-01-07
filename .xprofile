@@ -36,6 +36,6 @@ compton -c --config $XDG_CONFIG_HOME/compton/compton.conf $compositor_args &
 
 fi
 
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export EDITOR="nvim"
 export BROWSER="firefox"
