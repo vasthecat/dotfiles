@@ -9,4 +9,4 @@ export DESKTOP_SESSION="xmonad"
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec "$session_line"
+exec "$DESKTOP_SESSION"
