@@ -1,17 +1,18 @@
 set nocompatible
 filetype off
 
+set rtp+=~/.config/nvim
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'loremipsum'
 
 call vundle#end()
 filetype plugin indent on
@@ -22,6 +23,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autochdir
+set colorcolumn=80,120
+" set formatoptions-=t
+set formatprg=par\ -w80
 
 " Enable clipboard buffer to be used as vim buffer
 set clipboard=unnamedplus
@@ -39,19 +43,6 @@ au InsertLeave * set relativenumber
 
 colorscheme gruvbox
 set background=dark
-
-autocmd StdinReadPre * let s:std_in=1
-
-" Open NERDTree if no file specified
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Open NERDTree if openning directory
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-" Close vim if only window left open is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-map <C-n> :NERDTreeToggle<CR>
 
 " Remap splits shortcuts
 nnoremap <C-J> <C-W><C-J>
@@ -73,5 +64,9 @@ vmap <C-\> <leader>c<space>
 autocmd VimEnter * let g:basedir=expand("%:p:h")
 nmap <C-p> :execute "Files" g:basedir<CR>
 
+" Use of FZF plugin
 nmap ; :Buffers<CR>
 nmap <C-w> :bd!<CR>
+
+" Calling my script that allows per-project configuration of tasks keybindings
+call projector#init()

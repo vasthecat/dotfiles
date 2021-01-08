@@ -4,7 +4,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export SHELL="/bin/bash"
-export VIMINIT="source $MYVIMRC"
 
 # For Jetbrains products
 export _JAVA_AWT_WM_NONREPARENTING=1
