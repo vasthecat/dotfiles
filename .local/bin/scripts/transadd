@@ -1,11 +1,17 @@
 #!/bin/sh
 
-directories="/home/andrew/Downloads
-/home/andrew/Videos/Movies
-/home/andrew/Videos/Series"
-dest=$(printf "$directories" | dmenu -p "Choose destination" -i -l 5)
-transmission-remote -a "$@" -w "$dest" && notify-send "Torrent added"
+# Local paths
+# directories="/home/andrew/Downloads
+# /home/andrew/Videos/Movies
+# /home/andrew/Videos/Series"
 
-#tname=$(transmission-show "$@" | grep "^Name: " | sed "s/Name: //g")
-#tid=$(transmission-remote -l | grep "$tname" | awk '{ print $1 }')
-#t
+# Paths on remote server
+directories="/var/lib/transmission-daemon/downloads/Movies
+/var/lib/transmission-daemon/downloads/Series"
+
+host=$(pass transmission/rpi-host)
+creds=$(pass transmission/rpi-creds)
+
+dest=$(printf "$directories" | dmenu -p "Choose destination" -i -l 5)
+transmission-remote $host -n $creds -a "$@" -w "$dest" && notify-send "Torrent added"
+
