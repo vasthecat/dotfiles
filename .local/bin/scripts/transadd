@@ -7,7 +7,8 @@
 
 # Paths on remote server
 directories="/var/lib/transmission-daemon/downloads/Movies
-/var/lib/transmission-daemon/downloads/Series"
+/var/lib/transmission-daemon/downloads/Series
+/var/lib/transmission-daemon/downloads"
 
 host=$(pass transmission/rpi-host)
 creds=$(pass transmission/rpi-creds)
