@@ -265,7 +265,10 @@ myManageHook = composeAll
     , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , (className =? "PacketTracer" <&&> title =? "Cisco Packet Tracer") --> idHook
+    , (className =? "PacketTracer" <&&> title /=? "Cisco Packet Tracer") --> doFloat
+    ]
 
 ------------------------------------------------------------------------
 -- Startup hook
