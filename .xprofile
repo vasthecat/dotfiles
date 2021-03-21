@@ -38,4 +38,4 @@ fi
 
 export TERMINAL="kitty"
 export EDITOR="nvim"
-export BROWSER="librewolf"
+export BROWSER="firefox"
