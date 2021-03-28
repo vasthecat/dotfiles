@@ -5,7 +5,7 @@ do
 	capacity=$(cat "$battery"/capacity) || break
 	status=$(sed "s/[Dd]ischarging/discharging/;s/[Nn]ot charging/not_charging/;s/[Cc]harging/charging/;s/[Uu]nknown/unknown/;s/[Ff]ull/full/" "$battery"/status)
 
-    if [ "$status" = "charging"]; then
+    if [ "$status" = "charging" ]; then
         if [ "$capacity" -le 20 ]; then
             icon=""
         elif [ "$capacity" -le 40 ]; then
@@ -37,5 +37,6 @@ do
         icon=""
     fi
 
-	printf "%s %s%% " "$icon" "$capacity"
+	# printf "%s %s%% " "$icon" "$capacity"
+    printf "Battery: %s%%" "$capacity"
 done | sed 's/ *$//'
