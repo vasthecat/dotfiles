@@ -15,11 +15,6 @@ elif [ "$DESKTOP_SESSION" = "xmonad" ]; then
     compositor_args="-o 0"
 fi
 
-# Host specific config
-if [ "$(hostname -s)" = "laptop1" ]; then
-    fusuma &
-fi
-
 # Setup wallpaper
 WP_DIR="$HOME/Pictures/Wallpapers/"
 if [ -d "$WP_DIR" ]; then    
@@ -32,10 +27,13 @@ if ! [ $(command -v compton) ]; then
     alias compton="picom"
 fi
 
-compton -c --config $XDG_CONFIG_HOME/compton/compton.conf $compositor_args &
+# Run compositor only in openbox
+if [ "$DESKTOP_SESSION" = "openbox-session" ]; then
+    compton -c --config $XDG_CONFIG_HOME/compton/compton.conf $compositor_args &
+fi
 
 fi
 
-export TERMINAL="kitty"
+export TERMINAL="tabbed -c -r 2 st -w ''"
 export EDITOR="nvim"
 export BROWSER="firefox"
