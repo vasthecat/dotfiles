@@ -10,8 +10,8 @@ directories="/var/lib/transmission-daemon/downloads/Movies
 /var/lib/transmission-daemon/downloads/Series
 /var/lib/transmission-daemon/downloads"
 
-host=$(pass transmission/rpi-host)
-creds=$(pass transmission/rpi-creds)
+host=$(pass Services/transmission/rpi-host)
+creds=$(pass Services/transmission/rpi-creds)
 
 dest=$(printf "$directories" | dmenu -p "Choose destination" -i -l 5)
 transmission-remote $host -n $creds -a "$@" -w "$dest" && notify-send "Torrent added"
