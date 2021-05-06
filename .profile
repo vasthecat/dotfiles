@@ -36,7 +36,10 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export R_ENVIRON="$XDG_CONFIG_HOME/r/.Renviron"
+export GOPATH="$XDG_DATA_HOME/go"
 
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
 export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
+
+export PATH="$PATH:$CARGO_HOME/bin"

@@ -266,6 +266,8 @@ myManageHook = composeAll
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
+    , className  =? "Tk"            --> doFloat
+    , className  =? "Matplotlib"    --> doFloat
     , (className =? "PacketTracer" <&&> title =? "Cisco Packet Tracer") --> idHook
     , (className =? "PacketTracer" <&&> title /=? "Cisco Packet Tracer") --> doFloat
     ]
