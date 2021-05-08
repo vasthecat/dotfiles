@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+let g:nvim_config_root = expand('<sfile>:p:h')
 set rtp+=~/.config/nvim
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
@@ -24,7 +25,6 @@ set shiftwidth=4
 set expandtab
 set autochdir
 set colorcolumn=80,120
-" set formatoptions-=t
 set formatprg=par\ -w80
 
 " Enable clipboard buffer to be used as vim buffer
