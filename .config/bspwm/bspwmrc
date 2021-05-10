@@ -2,6 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 sh $HOME/.local/bin/lemonbar/run_lemonbar.sh &
+libinput-gestures -c $XDG_CONFIG_HOME/libinput-gestures/libinput-gestures.bspwm.conf &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
