@@ -70,3 +70,4 @@ status = ArrowModuleChain(right=False, capped_left=False, capped_right=True)
 status.extend(*status_modules)
 
 print(f"%{{l}}{desktops} %{{F#ebdbb2}}{focused_window} %{{r}}{status}%{{B#000000}}")
+

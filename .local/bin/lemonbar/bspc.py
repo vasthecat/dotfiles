@@ -33,10 +33,6 @@ def get_desktops():
     return desktops
 
 
-def get_focused_window():
-    return run("bspc query -N -n")
-
-
 def cut_name(name):
     if len(name) > 70:
         return name[:65] + "..."
@@ -45,11 +41,15 @@ def cut_name(name):
 
 
 def get_focused_window_name():
-    focused = get_focused_window().lower()
+    focused = run("bspc query -N -n")
+    if len(focused) == 0:
+        return ''
+    else:
+        focused = focused.lower()
+
     for window in run("wmctrl -l").split("\n"):
         wid, _, _, name = window.split(maxsplit=3)
         if wid.lower() == focused:
             return cut_name(name)
     return ''
-
 

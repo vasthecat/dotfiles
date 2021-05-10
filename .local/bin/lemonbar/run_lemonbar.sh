@@ -1,3 +1,6 @@
+basedir=$(dirname $0)
+cd $basedir
+
 fontsize="16"
 font="DejaVu Sans Mono:style=Bold,size=${fontsize}"
 iconsfont="xos4 Terminess Powerline:size=${fontsize}"
@@ -8,3 +11,5 @@ while :; do
     printf "%s\n" "$(python3 bargen.py)"
     sleep 0.5
 done | lemonbar -f "${font}" -f "${iconsfont}" -p
+
+wait
