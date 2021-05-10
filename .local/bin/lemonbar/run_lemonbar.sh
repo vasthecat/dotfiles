@@ -3,6 +3,7 @@ cd $basedir
 
 fontsize="16"
 font="DejaVu Sans Mono:style=Bold,size=${fontsize}"
+# powerline-fonts-git aur package
 iconsfont="xos4 Terminess Powerline:size=${fontsize}"
 
 rm -rf /tmp/lemonbar

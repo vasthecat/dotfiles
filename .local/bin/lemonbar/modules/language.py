@@ -6,5 +6,8 @@ def run(command):
 
 
 def callback():
-    name = run('xkblayout-state print "%s"').strip('"')
-    return f"LNG: {name.upper()}"
+    try:
+        name = run('xkblayout-state print "%s"').strip('"')
+        return f"LNG: {name.upper()}"
+    except FileNotFoundError:
+        return f"LNG: xkblayout-state not installed"
