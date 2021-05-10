@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-    tabbed -c -r 2 st -w ''
+    sh -c "$TERMINAL"
 
 # program launcher
 super + p
@@ -24,28 +24,66 @@ super + shift + {e,r}
     bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
-	bspc node -{c,k}
+super + {_,shift + }q
+    bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# applications
+super + w
+    $BROWSER
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+super + b
+    nemo
+
+super + Tab
+    sh -c "$TERMINAL -e htop"
+
+super + shift + b
+    bluecontrol
+
+super + shift + t
+    sh -c "$TERMINAL -e tremc"
+
+# volume control
+XF86AudioMute
+    pamixer -t
+
+XF86AudioLowerVolume
+    pamixer --allow-boost -d 5
+
+XF86AudioRaiseVolume
+    pamixer --allow-boost -i 5
+
+# touchpad notifications
+XF86TouchpadOff
+    notify-send 'Touchpad turned off'
+
+XF86TouchpadOn
+    notify-send 'Touchpad turned on'
+
+# screenshots
+{_,shift + } Print
+    screenshot area to {clip,file}
+
+ctrl + {_, shift + } Print
+    screenshot window to {clip,file}
+
+super + {_, shift + } Print
+    screenshot screen to {clip,file}
 
 #
 # state/flags
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,s,f}
+	bspc node -t {tiled,floating,fullscreen}
+
+# super + {t,shift + t,s,f}
+#     bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -72,8 +110,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+# super + {grave,Tab}
+	# bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
