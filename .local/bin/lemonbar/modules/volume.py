@@ -1,0 +1,93 @@
+from subprocess import run as _run
+import re
+
+
+def run(command):
+    return _run(command.split(), capture_output=True).stdout.decode().strip()
+
+
+def get_default_sink():
+    default_name = None
+    for line in run("pactl info").split("\n"):
+        key, val = line.split(": ")
+        if key == "Default Sink":
+            default_name = val
+            break
+
+    if default_name is None:
+        return None
+    
+    for sid, sink in get_sinks().items():
+        if sink["Name"] == default_name:
+            return sink
+    return None
+
+
+def get_sinks():
+    SINK, PARAMS, PARAM = 0, 1, 2
+    parsing = SINK
+
+    re_param_str = re.compile("(.+?): (.*)")
+    re_param_list = re.compile("(.+?):")
+
+    current_sink = None
+    current_param = None
+
+    sinks = {}
+    for line in run("pactl list sinks").split("\n"):
+        indent = line.count("\t")
+        line = line.strip()
+
+        if parsing == SINK:
+            if line.startswith("Sink"):
+                n = line.split()[1]
+                sinks[n] = {}
+                current_sink = sinks[n]
+
+                parsing = PARAMS
+
+        elif parsing == PARAMS:
+            if line == '':
+                parsing = SINK
+                continue
+            
+            match = re_param_str.match(line)
+            if indent == 1 and match is not None:
+                name, value = match.groups()
+                current_param = name
+                current_sink[name] = value
+                continue
+
+            match = re_param_list.match(line)
+            if indent == 1 and match is not None:
+                name = match.group(1)
+                current_param = name
+                current_sink[name] = []
+                continue
+
+            value = current_sink[name]
+            if isinstance(value, str):
+                current_sink[name] = [value]
+
+            current_sink[name].append(line)
+
+    return sinks
+
+
+def get_sink_volume(sink):
+    if sink is None:
+        return "None"
+    if sink["Mute"] == "yes":
+        return "Muted"
+
+    match = re.search(r"(\d+?)%", sink["Volume"][0])
+    if match is not None:
+        return f"{match.groups()[0]}%"
+
+
+def callback():
+    def_sink = get_default_sink()
+    vol = get_sink_volume(def_sink)
+
+    return f"VOL: {vol}"
+

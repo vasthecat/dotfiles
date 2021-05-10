@@ -2,6 +2,7 @@
 
 if [ "$DESKTOP_SESSION" = "openbox-session" ] || \
    [ "$DESKTOP_SESSION" = "xmonad" ] || \
+   [ "$DESKTOP_SESSION" = "bspwm" ] || \
    [ "$DESKTOP_SESSION" = "dwm" ]; then
 
 setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
@@ -35,5 +36,4 @@ fi
 fi
 
 export TERMINAL="tabbed -c -r 2 st -w ''"
-export EDITOR="nvim"
 export BROWSER="firefox"

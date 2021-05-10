@@ -4,7 +4,7 @@
 # Otherwise, display manager should set up this variable and
 # source the xprofile.
 
-export DESKTOP_SESSION="xmonad"
+export DESKTOP_SESSION="bspwm"
 
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile

@@ -3,7 +3,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
 fi
 
-export SHELL="/bin/bash"
+export SHELL="/bin/zsh"
+export EDITOR="nvim"
 
 # For Jetbrains products
 export _JAVA_AWT_WM_NONREPARENTING=1
