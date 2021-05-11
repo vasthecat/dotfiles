@@ -10,6 +10,10 @@ super + Return
 super + p
 	rofi -theme solarized_alternate -show drun
 
+# password manager
+super + shift + p
+    passmenu -i -l 5
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
