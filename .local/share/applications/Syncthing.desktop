@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Syncthing
+Exec=surf localhost:8384
