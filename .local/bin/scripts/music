@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Possible servers
+hosts="localhost
+desktop.lan
+laptop.lan"
+
+if [ -z "$1" ]; then
+    host=$(printf "$hosts" | dmenu -p "Choose host:" -i -l 5)
+else
+    host="$1"
+fi
+ncmpcpp -h $host
+
