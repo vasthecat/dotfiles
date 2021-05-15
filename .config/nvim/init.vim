@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 let g:nvim_config_root = expand('<sfile>:p:h')
 set rtp+=~/.config/nvim
@@ -26,6 +25,9 @@ set expandtab
 set autochdir
 set colorcolumn=80,120
 set formatprg=par\ -w80
+set autoread
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * :checktime
 
 " Enable clipboard buffer to be used as vim buffer
 set clipboard=unnamedplus
@@ -44,11 +46,16 @@ au InsertLeave * set relativenumber
 colorscheme gruvbox
 set background=dark
 
+let mapleader="\<Space>"
+
 " Remap splits shortcuts
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nmap <leader>s <ESC>:vsplit<CR>
+nmap <leader>vs <ESC>:split<CR>
 
 " NERDCommenter config
 let g:NERDSpaceDelims = 1

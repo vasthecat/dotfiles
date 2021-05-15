@@ -40,7 +40,7 @@ super + w
     $BROWSER
 
 super + b
-    nemo
+    pcmanfm
 
 super + Tab
     sh -c "$TERMINAL -e htop"

@@ -14,5 +14,6 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
 bspc rule -a Nemo state=floating
+bspc rule -a Pcmanfm state=floating
+bspc rule -a Zathura state=tiled
