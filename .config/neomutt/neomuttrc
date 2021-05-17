@@ -1,0 +1,32 @@
+# IMAP folder
+set realname="Andrew Guschin"
+set folder="~/mail/gmail"
+set spoolfile=+Inbox
+mailboxes =Inbox
+set postponed = +[Gmail]/Drafts
+
+set header_cache = "~/.cache/neomutt"
+set mailcap_path = "~/.config/neomutt/mailcap"
+set message_cachedir = "~/.cache/neomutt"
+
+# SMTP
+unset record
+set my_user=`pass Services/mail/gmail1/login`
+set smtp_pass=`pass Services/mail/gmail1/password`
+set smtp_url = "smtps://$my_user@smtp.gmail.com/"
+set ssl_starttls = yes
+
+# config
+set sort = 'reverse-date'
+set date_format="%y/%m/%d %I:%M%p"
+
+auto_view text/html
+
+# rebindings
+bind pager j next-line
+bind pager k previous-line
+bind index,pager,browser \Cd half-down
+bind index,pager,browser \Cu half-up
+bind index,pager R group-reply
+
+source colors.mutt
