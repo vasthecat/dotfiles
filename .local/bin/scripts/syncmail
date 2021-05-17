@@ -1,0 +1,6 @@
+#!/bin/sh
+
+notify-send -a "syncmail" "Syncing started"
+mbsync -a -c "$XDG_CONFIG_HOME/isync/mbsyncrc"
+mailcnt=$(ls ~/mail/gmail/Inbox/new/ | wc -l)
+notify-send -a "syncmail" "Syncing complete" "Got $mailcnt new e-mails"
