@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Possible servers
+hosts="raspberry
+localhost"
+
+if [ -z "$1" ]; then
+    host=$(printf "$hosts" | fzf +m --reverse)
+else
+    host="$1"
+fi
+
+case $host in
+    localhost) tremc -c localhost ;;
+    raspberry) 
+        host=$(pass Services/transmission/rpi-host)
+        creds=$(pass Services/transmission/rpi-creds)
+        tremc -c "$creds@$host" ;;
+esac
+

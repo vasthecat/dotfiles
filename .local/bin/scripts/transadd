@@ -1,17 +1,22 @@
 #!/bin/sh
 
-# Local paths
-# directories="/home/andrew/Downloads
-# /home/andrew/Videos/Movies
-# /home/andrew/Videos/Series"
+hosts="raspberry
+localhost"
 
-# Paths on remote server
-directories="/var/lib/transmission-daemon/downloads/Movies
+host=$(printf "$hosts" | dmenu -p "Choose host" -i -l 5)
+
+case $host in 
+    localhost) 
+        host="localhost"
+        creds=""
+        directories="$HOME/downloads" ;;
+    raspberry)
+        host=$(pass Services/transmission/rpi-host)
+        creds=$(pass Services/transmission/rpi-creds)
+        directories="/var/lib/transmission-daemon/downloads/Movies
 /var/lib/transmission-daemon/downloads/Series
-/var/lib/transmission-daemon/downloads"
-
-host=$(pass Services/transmission/rpi-host)
-creds=$(pass Services/transmission/rpi-creds)
+/var/lib/transmission-daemon/downloads" ;;
+esac
 
 dest=$(printf "$directories" | dmenu -p "Choose destination" -i -l 5)
 transmission-remote $host -n $creds -a "$@" -w "$dest" && notify-send "Torrent added"

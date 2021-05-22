@@ -49,7 +49,7 @@ super + Tab
     sh -c "$TERMINAL -e htop"
 
 super + shift + t
-    sh -c "$TERMINAL -e tremc"
+    sh -c "$TERMINAL -e transopen"
 
 super + m
     sh -c "$TERMINAL -e music localhost"
