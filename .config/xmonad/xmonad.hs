@@ -157,7 +157,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     
     -- Custom applications bindings
     [ ((modm, xK_w), spawn "$BROWSER")
-    , ((modm, xK_b), spawn "nemo")
+    , ((modm, xK_b), spawn "pcmanfm")
     , ((modm, xK_Tab), spawn "$TERMINAL -e htop")
     , ((modm .|. shiftMask, xK_b), spawn "bluecontrol")
     , ((modm .|. shiftMask, xK_t), spawn "$TERMINAL -e tremc")
@@ -262,6 +262,7 @@ myLayout = spacing 10 $ tiled ||| Mirror tiled ||| Full
 --
 myManageHook = composeAll
     [ className =? "Nemo"           --> doFloat
+    , className =? "Pcmanfm"        --> doFloat
     , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
