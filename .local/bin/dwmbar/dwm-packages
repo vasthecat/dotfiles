@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pacmancnt=$(pacman -Qu | grep -Fcv "[ignored]")
+aurcnt=$(yay -Qau | grep -Fcv "[ignored]")
+printf "$pacmancnt+$aurcnt"
+

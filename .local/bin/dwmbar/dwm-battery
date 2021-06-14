@@ -1,0 +1,6 @@
+#!/bin/sh
+for battery in /sys/class/power_supply/BAT?
+do
+	capacity=$(cat "$battery"/capacity) || break
+    printf "%s%%" "$capacity"
+done | sed 's/ *$//'
