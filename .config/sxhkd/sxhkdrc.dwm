@@ -1,0 +1,69 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+    sh -c "$TERMINAL"
+
+# program launcher
+super + p
+	rofi -theme gruvbox-dark -show drun
+
+# password manager
+super + shift + p
+    passmenu -i -l 5
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# applications
+super + w
+    $BROWSER
+
+super + b
+    pcmanfm
+
+super + shift + b
+    bluecontrol
+
+super + Tab
+    sh -c "$TERMINAL -e htop"
+
+super + shift + t
+    sh -c "$TERMINAL -e transopen"
+
+super + m
+    sh -c "$TERMINAL -e music localhost"
+
+super + shift + m
+    sh -c "$TERMINAL -e music"
+
+# volume control
+XF86AudioMute
+    pamixer -t; pkill -RTMIN+9 dwmblocks
+
+XF86AudioLowerVolume
+    pamixer --allow-boost -d 5; pkill -RTMIN+9 dwmblocks
+
+XF86AudioRaiseVolume
+    pamixer --allow-boost -i 5; pkill -RTMIN+9 dwmblocks
+
+# touchpad notifications
+XF86TouchpadOff
+    notify-send 'Touchpad turned off'
+
+XF86TouchpadOn
+    notify-send 'Touchpad turned on'
+
+# screenshots
+{_,shift + } Print
+    screenshot area to {clip,file}
+
+ctrl + {_, shift + } Print
+    screenshot window to {clip,file}
+
+super + {_, shift + } Print
+    screenshot screen to {clip,file}
+

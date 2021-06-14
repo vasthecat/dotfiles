@@ -12,7 +12,9 @@ dunst &
 if [ "$DESKTOP_SESSION" = "dwm" ]; then
     compositor_args="-o 0"
     dwmblocks &
-elif [ "$DESKTOP_SESSION" = "xmonad" ]; then
+    pgrep -x sxhkd > /dev/null || sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc.dwm &
+elif [ "$DESKTOP_SESSION" = "xmonad" ] || \
+     [ "$DESKTOP_SESSION" = "bspwm" ]; then
     compositor_args="-o 0"
 fi
 
