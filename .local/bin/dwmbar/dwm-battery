@@ -1,4 +1,6 @@
 #!/bin/sh
+
+[ -z "$(ls /sys/class/power_supply/)" ] && echo "none" && exit 0
 for battery in /sys/class/power_supply/BAT?
 do
 	capacity=$(cat "$battery"/capacity) || break
