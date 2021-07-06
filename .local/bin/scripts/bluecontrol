@@ -21,7 +21,7 @@ fPower()
 
 fScan()
 {
-    local time=5
+    local time=60
     notify-send "Turning on scanning for $time seconds"
     timeout $time bluetoothctl -- scan on
     notify-send "Scanning turned off"

@@ -54,8 +54,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nmap <leader>s <ESC>:vsplit<CR>
+nmap <leader>s  <ESC>:vsplit<CR>
 nmap <leader>vs <ESC>:split<CR>
+nmap <leader>f  <ESC>za
 
 " NERDCommenter config
 let g:NERDSpaceDelims = 1
