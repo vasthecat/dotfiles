@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Khal calendar
+Exec=x-terminal-emulator -e khal interactive
