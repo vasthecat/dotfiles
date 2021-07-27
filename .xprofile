@@ -38,4 +38,4 @@ fi
 fi
 
 export TERMINAL="tabbed -c -r 2 st -w ''"
-export BROWSER="brave"
+export BROWSER="qutebrowser"
