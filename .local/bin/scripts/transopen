@@ -2,6 +2,7 @@
 
 # Possible servers
 hosts="raspberry
+desktop
 localhost"
 
 if [ -z "$1" ]; then
@@ -12,6 +13,10 @@ fi
 
 case $host in
     localhost) tremc -c localhost ;;
+    desktop)
+        host=$(pass Services/transmission/desktop-host)
+        creds=$(pass Services/transmission/desktop-creds)
+        tremc -c "$creds@$host" ;;
     raspberry) 
         host=$(pass Services/transmission/rpi-host)
         creds=$(pass Services/transmission/rpi-creds)
