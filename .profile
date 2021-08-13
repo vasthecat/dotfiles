@@ -4,7 +4,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export SHELL="/bin/zsh"
-export EDITOR="nvim"
+export EDITOR="kak"
 
 # For Jetbrains products
 export _JAVA_AWT_WM_NONREPARENTING=1

@@ -1,0 +1,10 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyorst/plug.kak" noload
+plug "andreyorst/fzf.kak"
+
+colorscheme gruvbox
+add-highlighter global/ column 120 default,rgb:404040
+add-highlighter global/ number-lines -min-digits 3
+
+map global normal <c-p> ': fzf-mode<ret>'
+map global normal <c-k> ': comment-line<ret>'
