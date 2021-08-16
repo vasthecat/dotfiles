@@ -6,5 +6,6 @@ colorscheme gruvbox
 add-highlighter global/ column 120 default,rgb:404040
 add-highlighter global/ number-lines -min-digits 3
 
-map global normal <c-p> ': fzf-mode<ret>'
-map global normal <c-k> ': comment-line<ret>'
+map global normal <c-p> ': fzf-mode <ret>'
+map global normal <c-k> ': comment-line <ret>'
+map global user   y     '<a-|> xclip -i -selection clipboard <ret>' -docstring 'yank to system clipboard'

@@ -19,6 +19,7 @@ alias  dotstat="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' sta
 alias  dotdiff="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' diff"
 alias   dotadd="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' add -f"
 alias vim="nvim"
+alias e="$EDITOR"
 
 # ZSH config
 HISTFILE=~/.cache/zsh/histfile

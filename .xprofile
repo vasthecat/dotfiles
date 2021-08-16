@@ -37,5 +37,5 @@ fi
 
 fi
 
-export TERMINAL="tabbed -c -r 2 st -w ''"
+export TERMINAL="x-terminal-emulator"
 export BROWSER="qutebrowser"
