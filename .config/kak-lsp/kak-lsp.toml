@@ -1,0 +1,10 @@
+[language.latex]
+filetypes = ["latex"]
+roots = [".git"]
+command = "texlab"
+
+[language.c_cpp]
+filetypes = ["c", "cpp", "h", "hpp"]
+roots = ["compile_commands.json", ".ccls", ".git"]
+command = "ccls"
+args = ["--init={\"completion\":{\"detailedLabel\":false}}"]
