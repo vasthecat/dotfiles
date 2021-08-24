@@ -3,6 +3,10 @@ plug "andreyorst/plug.kak" noload
 plug "andreyorst/fzf.kak"
 
 colorscheme gruvbox
+
+set window tabstop 4
+set window indentwidth 0
+
 add-highlighter global/ column 80  default,rgb:404040
 add-highlighter global/ column 120 default,rgb:404040
 add-highlighter global/ number-lines -min-digits 3
