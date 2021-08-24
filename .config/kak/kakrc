@@ -13,8 +13,10 @@ add-highlighter global/ number-lines -min-digits 3
 
 map global normal <c-p> ': fzf-mode <ret>'
 map global normal <c-k> ': comment-line <ret>'
+
 map global user   y     '<a-|> xclip -i -selection clipboard <ret>' -docstring 'yank to system clipboard'
 map global user   f     '| par -w80 <ret>' -docstring 'reformat selection with external tool'
+map global user   l     %{: enter-user-mode lsp <ret>} -docstring 'LSP mode'
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 
