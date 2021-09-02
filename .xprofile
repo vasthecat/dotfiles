@@ -7,6 +7,7 @@ if [ "$DESKTOP_SESSION" = "openbox-session" ] || \
 
 setxkbmap -layout us,ru -option "grp:alt_shift_toggle"
 dunst &
+xss-lock -v -- slock -m "$(cowsay 'You shall not pass!')" &
 
 # Window manager specific config
 if [ "$DESKTOP_SESSION" = "dwm" ]; then
