@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + p
-	rofi -theme gruvbox-dark -show drun
+	dmenu-desktop
 
 # password manager
 super + shift + p
@@ -56,6 +56,13 @@ XF86TouchpadOff
 
 XF86TouchpadOn
     notify-send 'Touchpad turned on'
+
+# brightness controls
+XF86MonBrightnessUp
+	brightnessctl set 5%+
+
+XF86MonBrightnessDown
+	brightnessctl set 5%-
 
 # screenshots
 {_,shift + } Print

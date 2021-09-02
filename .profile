@@ -46,5 +46,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
-export PATH="$PATH:$CARGO_HOME/bin:$GOPATH/bin"
+export PATH="$PATH:$CARGO_HOME/bin:$GOPATH/bin:$GEM_HOME/bin"
 export PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -sd ':')"
+
