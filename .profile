@@ -36,15 +36,38 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export R_ENVIRON="$XDG_CONFIG_HOME/r/.Renviron"
+export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
+export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
 export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
 
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export GOPATH="$XDG_DATA_HOME/go"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuchrc"
+export NMBGIT="$XDG_DATA_HOME/notmuch/nmbug"
+
+# ncurses
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+
+# Javascript
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+
+# Ruby
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+
+# Rust
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+
+export GOPATH="$XDG_DATA_HOME/go"
 
 export PATH="$PATH:$CARGO_HOME/bin:$GOPATH/bin:$GEM_HOME/bin"
 export PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -sd ':')"
