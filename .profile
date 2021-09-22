@@ -38,7 +38,7 @@ export STACK_ROOT="$XDG_DATA_HOME/stack"
 export R_ENVIRON="$XDG_CONFIG_HOME/r/.Renviron"
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"

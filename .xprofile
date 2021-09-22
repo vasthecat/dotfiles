@@ -13,7 +13,6 @@ xss-lock -v -- slock -m "$(cowsay 'You shall not pass!')" &
 if [ "$DESKTOP_SESSION" = "dwm" ]; then
     compositor_args="-o 0"
     dwmblocks &
-    pgrep -x sxhkd > /dev/null || sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc.dwm &
 elif [ "$DESKTOP_SESSION" = "xmonad" ] || \
      [ "$DESKTOP_SESSION" = "bspwm" ]; then
     compositor_args="-o 0"
@@ -31,8 +30,8 @@ if ! [ $(command -v compton) ]; then
     alias compton="picom"
 fi
 
-# Run compositor only in openbox
-if [ "$DESKTOP_SESSION" = "openbox-session" ]; then
+if	[ "$DESKTOP_SESSION" = "openbox-session" ] || \
+	[ "$DESKTOP_SESSION" = "dwm" ]; then
     compton -c --config $XDG_CONFIG_HOME/compton/compton.conf $compositor_args &
 fi
 

@@ -1,2 +1,2 @@
 #!/bin/sh
-tabbed -c -r 2 st -w '' $@
+tabbed -c -r 2 alacritty --embed '' $@
