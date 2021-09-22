@@ -1,0 +1,12 @@
+#!/bin/sh
+# find "/usr/share/applications" "$XDG_DATA_HOME/applications" -type f \
+	# | dmenucmd -i
+
+find "/usr/share/applications" "$XDG_DATA_HOME/applications" -type f \
+	| xargs grep "^Name=" \
+	| sed -e "s/\(.*\):Name=\(.*\)/\2\t\1/g" - \
+	| sort \
+	| dmenucmd \
+	| cut -f2 \
+	| xargs basename \
+	| xargs gtk-launch
