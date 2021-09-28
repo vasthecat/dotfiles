@@ -2,8 +2,6 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
 plug "andreyorst/fzf.kak"
 
-colorscheme gruvbox
-
 set-option global tabstop 4
 set-option global indentwidth 0
 
@@ -17,6 +15,7 @@ map global normal <c-k> ': comment-line <ret>'
 map global user   y     '<a-|> xclip -i -selection clipboard <ret>' -docstring 'yank to system clipboard'
 map global user   f     '| par -w80 <ret>' -docstring 'reformat selection with external tool'
 map global user   l     %{: enter-user-mode lsp <ret>} -docstring 'LSP mode'
+map global user   s     "<esc>/\[\+\+\]<ret>c"
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 

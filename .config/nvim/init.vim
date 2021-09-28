@@ -8,7 +8,6 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
-Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 
@@ -40,9 +39,6 @@ set guioptions-=L  "remove left-hand scroll bar
 set relativenumber number
 au InsertEnter * set number norelativenumber
 au InsertLeave * set relativenumber
-
-colorscheme gruvbox
-set background=dark
 
 let mapleader="\<Space>"
 
