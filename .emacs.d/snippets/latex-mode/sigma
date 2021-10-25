@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX sigma letter
+# key: @s
+# --
+\sigma

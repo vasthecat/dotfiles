@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX rho letter
+# key: @r
+# --
+\rho

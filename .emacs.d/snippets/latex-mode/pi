@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX pi letter
+# key: @p
+# --
+\pi

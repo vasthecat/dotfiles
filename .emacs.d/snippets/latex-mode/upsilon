@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX upsilon letter
+# key: @u
+# --
+\upsilon

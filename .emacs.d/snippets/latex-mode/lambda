@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX lambda letter
+# key: @l
+# --
+\lambda

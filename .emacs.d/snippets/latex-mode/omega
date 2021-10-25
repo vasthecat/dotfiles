@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX omega letter
+# key: @o
+# --
+\omega

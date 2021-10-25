@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX wedge letter
+# key: @&
+# --
+\wedge

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX alpha letter
+# key: @a
+# --
+\alpha

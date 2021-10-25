@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: LaTeX varphi letter
+# key: @vf
+# --
+\varphi

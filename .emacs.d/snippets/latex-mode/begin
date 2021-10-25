@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: LaTeX Begin environment 
+# key: begin
+# --
+\begin{$1}
+  $0
+\end{$1}
