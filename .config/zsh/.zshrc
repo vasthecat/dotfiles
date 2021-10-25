@@ -38,6 +38,10 @@ zstyle :compinstall filename '/home/andrew/.zshrc'
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
+cdf() {
+	cd $(find ~ -type d &>/dev/null | fzf)
+}
+
 set_ps1() {
     # red color if current user us root, otherwise - green
     [ "$USER" = "root" ] && UCOLOR="%B%F{red}" || UCOLOR="%B%F{green}"

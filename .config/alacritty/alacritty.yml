@@ -9,35 +9,34 @@ window:
     x: 7
     y: 7
 
-background_opacity: 0.9
+background_opacity: 0.95
 
-# Colors (Abernathy)
+# Color Scheme - Monokai
 colors:
-  bright:
-    black:   '#404040'
-    blue:    '#11b5f6'
-    cyan:    '#00ffff'
-    green:   '#00ff00'
-    magenta: '#ff00ff'
-    red:     '#ff0000'
-    white:   '#ffffff'
-    yellow:  '#ffff00'
-  cursor:
-    cursor: '#bbbbbb'
-    text:   '#ffffff'
-  normal:
-    black:   '#000000'
-    blue:    '#1093f5'
-    cyan:    '#00cdcd'
-    green:   '#00cd00'
-    magenta: '#cd00cd'
-    red:     '#cd0000'
-    white:   '#faebd7'
-    yellow:  '#cdcd00'
   primary:
-    background: '#111416'
-    foreground: '#eeeeec'
-  selection:
-    background: '#eeeeec'
-    text:       '#333333'
+    background: '0x222222'
+    foreground: '0xfbf8ff'
 
+  normal:
+    black:   '0x5f5f5f'
+    red:     '0xf92672'
+    green:   '0xa6e22e'
+    yellow:  '0xe6db74'
+    blue:    '0x2ea7ef'
+    magenta: '0xae81ff'
+    cyan:    '0x6cefdd'
+    white:   '0xfbf8ff'
+
+  bright:
+    black:   '0x7f7c6b'
+    red:     '0xf9085f'
+    green:   '0x9be20b'
+    yellow:  '0xe6d107'
+    blue:    '0x0b9aef'
+    magenta: '0x8a48ff'
+    cyan:    '0x37efd4'
+    white:   '0xfbf8ff'
+
+  selection:
+    background: '0x5f5f5f'
+    text:       '0xfbf8ff'

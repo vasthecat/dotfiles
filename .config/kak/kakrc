@@ -1,21 +1,19 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 plug "andreyorst/plug.kak" noload
-plug "andreyorst/fzf.kak"
 
 set-option global tabstop 4
 set-option global indentwidth 0
+set-option global autoreload true
 
 add-highlighter global/ column 80  default,rgb:404040
 add-highlighter global/ column 120 default,rgb:404040
 add-highlighter global/ number-lines -min-digits 3
 
-map global normal <c-p> ': fzf-mode <ret>'
 map global normal <c-k> ': comment-line <ret>'
 
 map global user   y     '<a-|> xclip -i -selection clipboard <ret>' -docstring 'yank to system clipboard'
 map global user   f     '| par -w80 <ret>' -docstring 'reformat selection with external tool'
 map global user   l     %{: enter-user-mode lsp <ret>} -docstring 'LSP mode'
-map global user   s     "<esc>/\[\+\+\]<ret>c"
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 
@@ -23,12 +21,6 @@ hook global BufCreate .*\.tex %{
     set-option buffer filetype latex
 }
 
-hook global WinSetOption filetype=(latex) %{
-    lsp-enable-window
-    # map window user o %{: nop %sh{ setsid zathura %val{buffile} } }
-    # hook window BufWritePost .* %{ %sh{ pdflatex %val{buffile} } }
-}
-
-hook global WinSetOption filetype=(c|cpp) %{
+hook global WinSetOption filetype=(latex|c|cpp) %{
     lsp-enable-window
 }
