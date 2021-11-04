@@ -19,7 +19,7 @@ elif [ "$DESKTOP_SESSION" = "xmonad" ] || \
 fi
 
 # Setup wallpaper
-WP_DIR="$HOME/pictures/wallpapers/"
+WP_DIR="$HOME/Pictures/Wallpapers/"
 if [ -d "$WP_DIR" ]; then    
     WP=$( ls -l "$WP_DIR" | tail -n +2 | awk '{ print $9 }' | shuf | tail -n -1 )
     xwallpaper --zoom "$WP_DIR/$WP"

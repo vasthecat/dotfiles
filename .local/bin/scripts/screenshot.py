@@ -17,8 +17,8 @@ tool_name = "maim"
 default_tool = "area"
 default_dest = "clip"
 
-file_path = "~/pictures"
-file_name = "screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+file_path = "~/Pictures"
+file_name = "Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
 
 tool = {
     "area":   "-u -s -m 1",
