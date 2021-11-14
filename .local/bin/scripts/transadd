@@ -10,19 +10,15 @@ case $host in
     localhost) 
         host="localhost"
         creds=""
-        directories="$HOME/downloads" ;;
+        directories="$HOME/Downloads" ;;
     desktop)
         host=$(pass Services/transmission/desktop-host)
         creds=$(pass Services/transmission/desktop-creds)
-        directories="/home/andrew/videos/movies
-/home/andrew/videos/series
-/home/andrew/downloads" ;;
+        directories="/home/andrew/Downloads" ;;
     raspberry)
         host=$(pass Services/transmission/rpi-host)
         creds=$(pass Services/transmission/rpi-creds)
-        directories="/var/lib/transmission-daemon/downloads/Movies
-/var/lib/transmission-daemon/downloads/Series
-/var/lib/transmission-daemon/downloads" ;;
+        directories="/var/lib/transmission-daemon/Downloads" ;;
 esac
 
 dest=$(printf "$directories" | dmenu -p "Choose destination" -i -l 5)
