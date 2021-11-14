@@ -8,6 +8,7 @@ if [ "$DESKTOP_SESSION" = "openbox-session" ] || \
 setxkbmap -layout us,ru -option "grp:win_space_toggle"
 dunst &
 xss-lock -v -- slock -m "$(cowsay 'You shall not pass!')" &
+geary --gapplication-service &
 
 # Window manager specific config
 if [ "$DESKTOP_SESSION" = "dwm" ]; then
