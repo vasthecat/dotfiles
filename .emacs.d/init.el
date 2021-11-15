@@ -17,9 +17,6 @@
 ;; (require 'evil)
 ;; (evil-mode 1)
 
-(require 'discord-emacs)
-(discord-emacs-run "384815451978334208")
-
 (require 'yasnippet)
 (yas-global-mode 1)
 
