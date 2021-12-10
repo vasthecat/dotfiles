@@ -19,6 +19,8 @@ elif [ "$DESKTOP_SESSION" = "xmonad" ] || \
     compositor_args="-o 0"
 fi
 
+compositor_args="$compositor_args --backend glx --vsync"
+
 # Setup wallpaper
 WP_DIR="$HOME/Pictures/Wallpapers/"
 if [ -d "$WP_DIR" ]; then    
