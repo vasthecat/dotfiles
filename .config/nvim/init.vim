@@ -8,8 +8,6 @@ call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-airline/vim-airline'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -61,14 +59,6 @@ let g:NERDTreeChDirMode=2
 " NERDCommenter shortcuts
 nmap <C-\> <leader>c<space>
 vmap <C-\> <leader>c<space>
-
-" Only search for files in directory in which vim was opened. 
-autocmd VimEnter * let g:basedir=expand("%:p:h")
-nmap <C-p> :execute "Files" g:basedir<CR>
-
-" Use of FZF plugin
-nmap ; :Buffers<CR>
-nmap <C-w> :bd!<CR>
 
 " Calling my script that allows per-project configuration of tasks keybindings
 call projector#init()
