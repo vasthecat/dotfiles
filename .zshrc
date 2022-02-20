@@ -13,10 +13,7 @@ fi
 alias la='ls -lhFA'
 alias ll='ls -lhF'
 alias  l='ls -CF'
-alias dotfiles="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME'"
-alias  dotstat="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' status"
-alias  dotdiff="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' diff"
-alias   dotadd="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME' add -f"
+alias dot="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME'"
 alias e="$EDITOR"
 
 # XDG aliases
@@ -32,22 +29,30 @@ setopt extendedglob nomatch
 unsetopt autocd beep
 bindkey -e
 autoload -Uz compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats ' (%b)'
 
 cdf() {
 	cd "$(find ~ -type d &>/dev/null | fzf)"
 }
 
-set_ps1() {
-    # red color if current user us root, otherwise - green
+set_prompt() {
+    # red color if current user is root, otherwise - green
     [ "$USER" = "root" ] && UCOLOR="%B%F{red}" || UCOLOR="%B%F{green}"
     [ "$USER" = "root" ] && END="#" || END="$"
     BLUE="%B%F{blue}"
     PURPLE="%B%F{magenta}"
     STOP="%f%b"
-    export PS1="%T $UCOLOR%n$STOP@$PURPLE%m$STOP:$BLUE%~$STOP $END "
+    setopt PROMPT_SUBST
+    PROMPT='%T $UCOLOR%n$STOP@$PURPLE%m$STOP:$BLUE%~$STOP${vcs_info_msg_0_}'$'\n''$END '
 }
-
-set_ps1
+set_prompt
 
 fortune -s | cowsay
