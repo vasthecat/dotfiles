@@ -1,10 +1,10 @@
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -sd ':')"
+    PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -s -d ':' -)"
 fi
 
 export SHELL="/bin/zsh"
-export EDITOR="emacs -nw"
+export EDITOR="vim"
 
 # For Jetbrains products
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -13,7 +13,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-# export XDG_RUNTIME_DIR=""
 
 # XDG Specific configs
 export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
@@ -27,7 +26,6 @@ export KODI_DATA="$XDG_DATA_HOME/kodi"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export LESSHISTFILE=-
@@ -67,8 +65,9 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
+# Go
 export GOPATH="$XDG_DATA_HOME/go"
 
+export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:$CARGO_HOME/bin:$GOPATH/bin:$GEM_HOME/bin"
-export PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -sd ':')"
-
+export PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -s -d ':' -)"

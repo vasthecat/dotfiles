@@ -1,7 +1,6 @@
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto --group-directories-first'
+if [ -x /usr/bin/dircolors ] || [ "$(uname)" = "Darwin" ]; then
+    alias ls='ls --color=auto'
     alias gcc='gcc -fdiagnostics-color=always'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -25,7 +24,6 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias sqlite3='sqlite3 -init "$XDG_CONFIG_HOME"/sqlite3/sqliterc'
 
-
 # ZSH config
 HISTFILE=~/.cache/zsh/histfile
 HISTSIZE=1000
@@ -33,12 +31,11 @@ SAVEHIST=1000
 setopt extendedglob nomatch
 unsetopt autocd beep
 bindkey -e
-zstyle :compinstall filename '/home/andrew/.zshrc'
 autoload -Uz compinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 
 cdf() {
-	cd $(find ~ -type d &>/dev/null | fzf)
+	cd "$(find ~ -type d &>/dev/null | fzf)"
 }
 
 set_ps1() {
@@ -52,3 +49,5 @@ set_ps1() {
 }
 
 set_ps1
+
+fortune -s | cowsay
