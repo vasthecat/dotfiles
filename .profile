@@ -15,7 +15,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # XDG Specific configs
-export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/init.vim"
 export VIMINIT="source $MYVIMRC"
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"

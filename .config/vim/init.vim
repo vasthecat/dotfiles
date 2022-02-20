@@ -1,15 +1,11 @@
 set nocompatible
 
-let g:nvim_config_root = expand('<sfile>:p:h')
-set rtp+=~/.config/nvim
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-airline/vim-airline'
-
-call vundle#end()
+set rtp+=$XDG_CONFIG_HOME/vim/
+call plug#begin("$XDG_CONFIG_HOME/vim/plugins")
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-commentary'
+call plug#end()
 filetype plugin indent on
 
 syntax on
@@ -19,13 +15,15 @@ set shiftwidth=4
 set expandtab
 set autochdir
 set colorcolumn=80,120
+highlight ColorColumn ctermbg=8 guibg=lightgrey
 set formatprg=par\ -w80
 set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
 
 " Enable clipboard buffer to be used as vim buffer
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+set mouse=a
 
 " Settings for gvim
 set guioptions-=m  "remove menu bar
@@ -48,17 +46,20 @@ nnoremap <C-H> <C-W><C-H>
 
 nmap <leader>s  <ESC>:vsplit<CR>
 nmap <leader>vs <ESC>:split<CR>
-nmap <leader>f  <ESC>za
 
 " NERDCommenter config
 let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 0
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDTreeChDirMode=2
 
 " NERDCommenter shortcuts
-nmap <C-\> <leader>c<space>
-vmap <C-\> <leader>c<space>
+nmap <C-k> <leader>c<space>
+vmap <C-k> <leader>c<space>
 
-" Calling my script that allows per-project configuration of tasks keybindings
-call projector#init()
+" Copy to clipboard
+nmap <leader>y "+y
+vmap <leader>y "+y
+nmap <leader>d "+d
+vmap <leader>d "+d
