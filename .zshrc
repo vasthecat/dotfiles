@@ -54,5 +54,3 @@ set_prompt() {
     PROMPT='%T $UCOLOR%n$STOP@$PURPLE%m$STOP:$BLUE%~$STOP${vcs_info_msg_0_}'$'\n''$END '
 }
 set_prompt
-
-fortune -s | cowsay

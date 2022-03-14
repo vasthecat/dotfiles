@@ -3,6 +3,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -s -d ':' -)"
 fi
 
+export LANG="en_US.UTF-8"
 export SHELL="/bin/zsh"
 export EDITOR="vim"
 
