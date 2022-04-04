@@ -61,14 +61,28 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+if [ -d "$GEM_HOME/ruby" ]; then
+    PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -s -d ':' -)"
+fi
+export PATH="$PATH:$GEM_HOME/bin"
 
 # Rust
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export PATH="$PATH:$CARGO_HOME/bin"
 
 # Go
 export GOPATH="$XDG_DATA_HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:$CARGO_HOME/bin:$GOPATH/bin:$GEM_HOME/bin"
-export PATH="$PATH:$(du $GEM_HOME/ruby/*/bin | cut -f2 | paste -s -d ':' -)"
+# Python
+# On Linux python executables installed with pip should be in ~/.local/bin
+if [ "$(uname)" = "Darwin" ]; then
+    _pypaths="$(du $HOME/Library/Python/*/bin | cut -f2 | paste -s -d ':' -)"
+    export PATH="$PATH:$_pypaths"
+    unset _pypaths
+fi
+
+if [ "$(uname)" = "Darwin" ]; then
+    export PATH="$PATH:/opt/homebrew/bin"
+fi
