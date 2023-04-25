@@ -14,7 +14,6 @@ alias la='ls -lhFA'
 alias ll='ls -lhF'
 alias  l='ls -CF'
 alias dot="/usr/bin/git --git-dir='$HOME/.dotfiles' --work-tree='$HOME'"
-alias e="$EDITOR"
 
 # XDG aliases
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
