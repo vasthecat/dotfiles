@@ -28,6 +28,11 @@ SAVEHIST=1000
 setopt extendedglob nomatch
 unsetopt autocd beep
 bindkey -e
+bindkey -v
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey -M vicmd '^R' history-incremental-pattern-search-backward
 autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump
@@ -40,7 +45,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats ' (%b)'
 
 cdf() {
-	cd "$(find ~ -type d &>/dev/null | fzf)"
+    cd "$(find ~ -type d &>/dev/null | fzf)"
 }
 
 set_prompt() {
@@ -54,3 +59,4 @@ set_prompt() {
     PROMPT='%T $UCOLOR%n$STOP@$PURPLE%m$STOP:$BLUE%~$STOP${vcs_info_msg_0_}'$'\n''$END '
 }
 set_prompt
+

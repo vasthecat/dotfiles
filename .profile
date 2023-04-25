@@ -1,6 +1,6 @@
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | paste -s -d ':' -)"
+    PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -s -d ':' -)"
 fi
 
 export LANG="en_US.UTF-8"
@@ -14,6 +14,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 # XDG Specific configs
 export MYVIMRC="$XDG_CONFIG_HOME/vim/init.vim"
@@ -70,10 +71,16 @@ export PATH="$PATH:$GEM_HOME/bin"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export PATH="$PATH:$CARGO_HOME/bin"
+. "$CARGO_HOME/env"
 
 # Go
 export GOPATH="$XDG_DATA_HOME/go"
 export PATH="$PATH:$GOPATH/bin"
+
+# Haskell
+export PATH="$PATH:$HOME/.cabal/bin"
+export GHCUP_USE_XDG_DIRS=true
+[ -f "$XDG_DATA_HOME/ghcup/env" ] && . "$XDG_DATA_HOME/ghcup/env"
 
 # Python
 # On Linux python executables installed with pip should be in ~/.local/bin
@@ -86,3 +93,8 @@ fi
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="$PATH:/opt/homebrew/bin"
 fi
+
+if [ "$(uname)" = "Darwin" ]; then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+fi
+
