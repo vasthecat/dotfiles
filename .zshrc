@@ -59,3 +59,4 @@ set_prompt() {
 }
 set_prompt
 
+source $HOME/.zprofile

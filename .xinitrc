@@ -6,6 +6,7 @@
 
 export DESKTOP_SESSION="dwm"
 
+[ -f ~/.profile ] && . ~/.profile
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
