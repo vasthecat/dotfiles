@@ -48,3 +48,4 @@ set_prompt() {
 }
 set_prompt 0
 
+source $HOME/.profile

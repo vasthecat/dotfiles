@@ -71,7 +71,7 @@ export PATH="$PATH:$GEM_HOME/bin"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export PATH="$PATH:$CARGO_HOME/bin"
-. "$CARGO_HOME/env"
+[ -f "$CARGO_HOME/env" ] && . "$CARGO_HOME/env"
 
 # Go
 export GOPATH="$XDG_DATA_HOME/go"
