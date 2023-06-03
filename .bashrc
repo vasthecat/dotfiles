@@ -21,7 +21,9 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias sqlite3='sqlite3 -init "$XDG_CONFIG_HOME"/sqlite3/sqliterc'
 
 # Bash config
-bind "set completion-ignore-case on"
+if [[ "$(set -o | grep 'emacs\|\bvi\b' | cut -f2 | tr '\n' ':')" != 'off:off:' ]]; then
+    bind "set completion-ignore-case on"
+fi
 
 # Functions
 cdf() {
