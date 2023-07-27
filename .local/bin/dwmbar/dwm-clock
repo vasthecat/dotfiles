@@ -1,2 +1,2 @@
 #!/bin/sh
-printf "$(date "+%d %b (%a) %k:%M")"
+printf "[$(date "+%d %b (%a) %k:%M")]"

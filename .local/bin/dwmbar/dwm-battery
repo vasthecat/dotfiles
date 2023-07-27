@@ -4,5 +4,5 @@
 for battery in /sys/class/power_supply/BAT?
 do
 	capacity=$(cat "$battery"/capacity) || break
-    printf "%s%%" "$capacity"
+    printf "[BAT %s%%]" "$capacity"
 done | sed 's/ *$//'

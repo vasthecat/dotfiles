@@ -88,4 +88,4 @@ def get_sink_volume(sink):
 
 def_sink = get_default_sink()
 vol = get_sink_volume(def_sink)
-print(vol)
+print(f"[VOL {vol}]")
