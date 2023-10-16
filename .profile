@@ -17,8 +17,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # XDG Specific configs
-export MYVIMRC="$XDG_CONFIG_HOME/vim/init.vim"
-export VIMINIT="source $MYVIMRC"
+# export MYVIMRC="$XDG_CONFIG_HOME/vim/init.vim"
+# export VIMINIT="source $MYVIMRC"
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
