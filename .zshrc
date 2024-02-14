@@ -47,6 +47,10 @@ cdf() {
     cd "$(find ~ -type d &>/dev/null | fzf)"
 }
 
+open() {
+    setsid xdg-open $@
+}
+
 set_prompt() {
     # red color if current user is root, otherwise - green
     [ "$USER" = "root" ] && UCOLOR="%B%F{red}" || UCOLOR="%B%F{green}"
