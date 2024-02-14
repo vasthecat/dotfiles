@@ -12,7 +12,7 @@ application/x-extension-xht=brave.desktop;
 application/x-bittorrent=torrent.desktop;
 image/png=sxiv.desktop;
 image/jpeg=sxiv.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 
 [Added Associations]
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
