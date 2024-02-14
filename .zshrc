@@ -64,3 +64,7 @@ set_prompt() {
 set_prompt
 
 source $HOME/.zprofile
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
