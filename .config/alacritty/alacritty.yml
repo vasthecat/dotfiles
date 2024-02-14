@@ -3,14 +3,13 @@ font:
 
 window:
   padding:
-    x: 7
-    y: 7
-  opacity: 0.95
+    x: 4
+    y: 4
+  opacity: 1
 
-# Color Scheme - Monokai
 colors:
   primary:
-    background: '0x222222'
+    background: '0x0F1419'
     foreground: '0xfbf8ff'
 
   normal:
@@ -36,3 +35,27 @@ colors:
   selection:
     background: '0x5f5f5f'
     text:       '0xfbf8ff'
+
+  ## Pencil light
+  # primary:
+  #   background: '0xf1f1f1'
+  #   foreground: '0x000000'
+  # normal:
+  #   black:   '0x212121'
+  #   red:     '0xc30771'
+  #   green:   '0x10a778'
+  #   yellow:  '0xa89c14'
+  #   blue:    '0x008ec4'
+  #   magenta: '0x523c79'
+  #   cyan:    '0x20a5ba'
+  #   white:   '0xe0e0e0'
+  # bright:
+  #   black:   '0x212121'
+  #   red:     '0xfb007a'
+  #   green:   '0x5fd7af'
+  #   yellow:  '0xf3e430'
+  #   blue:    '0x20bbfc'
+  #   magenta: '0x6855de'
+  #   cyan:    '0x4fb8cc'
+  #   white:   '0xf1f1f1'
+
