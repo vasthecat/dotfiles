@@ -5,7 +5,7 @@ fi
 
 export LANG="en_US.UTF-8"
 export SHELL="/bin/zsh"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # For Jetbrains products
 export _JAVA_AWT_WM_NONREPARENTING=1
