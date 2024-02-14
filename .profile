@@ -84,11 +84,12 @@ export GHCUP_USE_XDG_DIRS=true
 
 # Python
 # On Linux python executables installed with pip should be in ~/.local/bin
-if [ "$(uname)" = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ] && [ -f $HOME/Library/Python ]; then
     _pypaths="$(du $HOME/Library/Python/*/bin | cut -f2 | paste -s -d ':' -)"
     export PATH="$PATH:$_pypaths"
     unset _pypaths
 fi
+export RYE_HOME="$XDG_DATA_HOME/rye"
 
 if [ "$(uname)" = "Darwin" ]; then
     export PATH="$PATH:/opt/homebrew/bin"
