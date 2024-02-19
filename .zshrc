@@ -47,9 +47,11 @@ cdf() {
     cd "$(find ~ -type d &>/dev/null | fzf)"
 }
 
+if [ "$(uname)" != "Darwin" ]; then
 open() {
     setsid xdg-open $@
 }
+fi
 
 set_prompt() {
     # red color if current user is root, otherwise - green
