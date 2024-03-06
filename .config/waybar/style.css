@@ -1,0 +1,52 @@
+* {
+    font-family: monospace, sans-serif;
+    font-size: 12px;
+    color: #fff;
+}
+
+window#waybar {
+    background-color: black;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#disk,
+#tray {
+    background-color: black;
+    padding: 0 5px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+#workspaces {
+  margin-left: 10px;
+  padding: 0;
+}
+
+#workspaces button {
+    padding: 0px 3px;
+    margin: 4px;
+    border: none;
+    border-radius: 3px;
+}
+
+#workspaces button:hover {
+    background-color: black;
+}
+
+#workspaces button:hover label {
+    color: white;
+}
+
+#workspaces button.active {
+    background-color: white;
+}
+
+#workspaces button.active label {
+    color: black;
+}
+

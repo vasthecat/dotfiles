@@ -1,0 +1,68 @@
+// -*- mode: json -*-
+
+{
+  "layer": "top",
+
+  "modules-left": [
+    "hyprland/workspaces",
+  ],
+  "modules-center": [
+    "clock#time",
+    "clock#date",
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "battery",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "on-click": "activate"
+    },
+
+  "clock#time": {
+    "format": "{:%H:%M:%S}",
+    "tooltip": false,
+    "interval": 1
+  },
+  "clock#date": {
+    "format": "{:%A, %m/%d}",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume:2}%",
+    "format-bluetooth": "{icon}  {volume}% ",
+    "format-muted": "MUTE",
+    "format-icons": {
+      "headphones": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
